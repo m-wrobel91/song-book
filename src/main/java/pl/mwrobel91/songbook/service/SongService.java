@@ -10,4 +10,6 @@ public interface SongService {
     List<Song> getSongs();
 
     List<Song> getSongsByCategory(String category);
+
+    void create(Song song);
 }

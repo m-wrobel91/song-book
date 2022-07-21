@@ -1,6 +1,7 @@
 package pl.mwrobel91.songbook.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 import pl.mwrobel91.songbook.dto.SongDTO;
 import pl.mwrobel91.songbook.facade.SongFacade;
@@ -9,13 +10,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/song")
-public class SongController {
+public class SongController extends SongBookBaseController {
 
     @Autowired
     private final SongFacade songFacade;
 
-    public SongController(final SongFacade songFacade) {
+    @Autowired
+    private final Validator newSongValidator;
+
+
+    public SongController(final SongFacade songFacade, final Validator newSongValidator) {
         this.songFacade = songFacade;
+        this.newSongValidator = newSongValidator;
     }
 
 
@@ -28,4 +34,9 @@ public class SongController {
         return songFacade.getSongsByCategory(category);
     }
 
+    @PostMapping(value = "/")
+    public void create(@RequestBody SongDTO songDTO) {
+        validate(songDTO, "SongDTO", newSongValidator);
+        songFacade.create(songDTO);
+    }
 }

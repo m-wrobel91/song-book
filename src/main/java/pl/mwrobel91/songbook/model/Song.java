@@ -1,6 +1,7 @@
 package pl.mwrobel91.songbook.model;
 
 
+import pl.mwrobel91.songbook.dto.SongDTO;
 import pl.mwrobel91.songbook.enums.Category;
 
 import javax.persistence.*;
@@ -16,6 +17,16 @@ public class Song {
     private Category category;
     private String lyrics;
     private int duration;
+
+    public Song() {
+    }
+
+    public Song(SongDTO songDTO) {
+        this.title = songDTO.getTitle();
+        this.category = Category.valueOf(songDTO.getCategory());
+        this.lyrics = songDTO.getLyrics();
+        this.duration = songDTO.getDuration();
+    }
 
     public Long getId() {
         return id;

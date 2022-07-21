@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.mwrobel91.songbook.dto.SongDTO;
 import pl.mwrobel91.songbook.facade.SongFacade;
+import pl.mwrobel91.songbook.model.Song;
 import pl.mwrobel91.songbook.service.SongService;
 
 import java.util.List;
@@ -36,5 +37,11 @@ public class SongFacadeImpl implements SongFacade {
                 .filter(Objects::nonNull)
                 .map(SongDTO::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void create(SongDTO songDTO) {
+        Song song = new Song(songDTO);
+        songService.create(song);
     }
 }

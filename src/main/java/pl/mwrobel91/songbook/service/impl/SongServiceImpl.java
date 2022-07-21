@@ -30,4 +30,9 @@ public class SongServiceImpl implements SongService {
         requireNonNull(category);
         return songRepository.getSongsByCategory(category);
     }
+
+    @Override
+    public void create(Song song) {
+        songRepository.save(song);
+    }
 }

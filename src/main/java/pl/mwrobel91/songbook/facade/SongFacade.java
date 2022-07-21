@@ -9,4 +9,6 @@ public interface SongFacade {
     List<SongDTO> getSongs();
 
     List<SongDTO> getSongsByCategory(String category);
+
+    void create(SongDTO songDTO);
 }
