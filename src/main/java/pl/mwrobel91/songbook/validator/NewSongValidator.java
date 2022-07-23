@@ -7,6 +7,8 @@ import org.springframework.validation.Validator;
 import pl.mwrobel91.songbook.dto.SongDTO;
 import pl.mwrobel91.songbook.enums.Category;
 
+import java.text.MessageFormat;
+
 @Component
 public class NewSongValidator implements Validator {
     @Override
@@ -21,8 +23,10 @@ public class NewSongValidator implements Validator {
     }
 
     private void checkIfCategoryIsProper(String category, Errors errors) {
-        if(!EnumUtils.isValidEnum(Category.class, category)) {
-            errors.rejectValue("category", "Given category string is not within enum values");
+        if (!EnumUtils.isValidEnum(Category.class, category)) {
+            final String errorCode = MessageFormat.format(
+                    "Given category: <{0}> is not within enum values of: <{1}>", category, Category.class);
+            errors.rejectValue("category", errorCode);
         }
     }
 }
