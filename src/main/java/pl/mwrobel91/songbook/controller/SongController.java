@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/song")
-public class SongController extends SongBookBaseController {
+public class SongController extends BaseController {
 
     @Autowired
     private final SongFacade songFacade;
@@ -19,7 +19,7 @@ public class SongController extends SongBookBaseController {
     private final Validator newSongValidator;
 
 
-    public SongController(final SongFacade songFacade, final Validator newSongValidator) {
+    private SongController(final SongFacade songFacade, final Validator newSongValidator) {
         this.songFacade = songFacade;
         this.newSongValidator = newSongValidator;
     }
