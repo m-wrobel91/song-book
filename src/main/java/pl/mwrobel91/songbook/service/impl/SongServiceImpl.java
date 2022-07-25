@@ -35,4 +35,9 @@ public class SongServiceImpl implements SongService {
     public void create(Song song) {
         songRepository.save(song);
     }
+
+    @Override
+    public Song getRandomSong() {
+        return songRepository.getRandomSong();
+    }
 }

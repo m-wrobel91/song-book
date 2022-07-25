@@ -1,6 +1,6 @@
-INSERT INTO songs (id, title, category, duration) VALUES (1, 'Hej na krakowskim rynku', 'PRZERYWNIKI_SLASKIE', 60);
-INSERT INTO songs (id, title, category, duration) VALUES (2, 'Starzyk', 'PRZERYWNIKI_SLASKIE', 60);
-INSERT INTO songs (id, title, category, duration) VALUES (3, 'Albośmyto jacy tacy', 'SUITA_KRAKOWIAK',  60);
-INSERT INTO songs (id, title, category, duration) VALUES (4, 'Oj krakowiaka śpiwom', 'SUITA_KRAKOWIAK', 60);
+INSERT INTO songs (id, title, category, duration, lyrics) VALUES (1, 'Hej na krakowskim rynku', 'PRZERYWNIKI_SLASKIE', 60, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
+INSERT INTO songs (id, title, category, duration, lyrics) VALUES (2, 'Starzyk', 'PRZERYWNIKI_SLASKIE', 60, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
+INSERT INTO songs (id, title, category, duration, lyrics) VALUES (3, 'Albośmyto jacy tacy', 'SUITA_KRAKOWIAK',  60, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.');
+INSERT INTO songs (id, title, category, duration, lyrics) VALUES (4, 'Oj krakowiaka śpiwom', 'SUITA_KRAKOWIAK', 60, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.');
 
 

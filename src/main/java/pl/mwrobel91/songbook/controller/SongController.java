@@ -33,6 +33,10 @@ public class SongController extends BaseController {
     public List<SongDTO> getSongsByCategory(@PathVariable final String category) {
         return songFacade.getSongsByCategory(category);
     }
+    @GetMapping(value = "/random")
+    public SongDTO gerRandomSong() {
+        return songFacade.getRandomSong();
+    }
 
     @PostMapping(value = "/")
     public void create(@RequestBody SongDTO songDTO) {
