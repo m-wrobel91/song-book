@@ -16,5 +16,14 @@ public interface SongRepository extends JpaRepository<Song, Long> {
 
     @Query(value ="SELECT * FROM songs s WHERE s.category = :category", nativeQuery = true)
     List<Song> getSongsByCategory(@Param("category") String category);
+
+    @Query(value = "SELECT COUNT (id) FROM songs", nativeQuery = true)
+    int countSongs();
+
+    @Query(value = "SELECT * FROM songs s WHERE s.id = :id", nativeQuery = true)
+    Song getSongById(@Param("id") long id);
+
+    @Query(value = "SELECT * FROM songs s ORDER BY RAND() LIMIT 1", nativeQuery = true)
+    Song getRandomSong();
 }
 

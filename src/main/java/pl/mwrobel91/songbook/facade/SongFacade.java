@@ -11,4 +11,6 @@ public interface SongFacade {
     List<SongDTO> getSongsByCategory(String category);
 
     void create(SongDTO songDTO);
+
+    SongDTO getRandomSong();
 }

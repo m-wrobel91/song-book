@@ -12,4 +12,6 @@ public interface SongService {
     List<Song> getSongsByCategory(String category);
 
     void create(Song song);
+
+    Song getRandomSong();
 }
