@@ -14,6 +14,7 @@ class NewSongValidatorTest {
     private static final String OBJECT_NAME = "songDTO";
     private static final String FIELD_CATEGORY = "category";
     private static final String FIELD_TITLE = "title";
+    private static final String FIELD_DURATION = "duration";
     private final NewSongValidator newSongValidator = new NewSongValidator();
 
     @Test
@@ -49,6 +50,14 @@ class NewSongValidatorTest {
         newSongValidator.validate(songDTO, errors);
         final String errorField = getErrorField(errors);
         assertEquals(FIELD_TITLE, errorField);
+    }
+    @Test
+    void testNewSongValidatorNegativeDuration() {
+        final SongDTO songDTO = new SongDTO("title", "SUITA_KRAKOWIAK", "lyrics", -1);
+        final Errors errors = new BeanPropertyBindingResult(songDTO, OBJECT_NAME);
+        newSongValidator.validate(songDTO, errors);
+        final String errorField = getErrorField(errors);
+        assertEquals(FIELD_DURATION, errorField);
     }
 
     private String getErrorField(final Errors errors) {

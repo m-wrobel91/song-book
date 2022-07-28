@@ -12,6 +12,12 @@ import java.text.MessageFormat;
 
 @Component
 public class NewSongValidator implements Validator {
+
+    public static final String DURATION = "duration";
+    public static final String TITLE = "title";
+    public static final String LYRICS = "lyrics";
+    public static final String CATEGORY = "category";
+
     @Override
     public boolean supports(Class<?> clazz) {
         return SongDTO.class.equals(clazz);
@@ -21,27 +27,37 @@ public class NewSongValidator implements Validator {
     public void validate(Object target, Errors errors) {
         SongDTO songDTO = (SongDTO) target;
         checkIfCategoryIsProper(songDTO.getCategory(), errors);
-        checkIfTitleEmptyOrNUll(songDTO.getTitle(), errors);
-        checkIfLyricsEmptyOrNUll(songDTO.getLyrics(), errors);
+        checkIfTitleEmptyOrNull(songDTO.getTitle(), errors);
+        checkIfLyricsEmptyOrNull(songDTO.getLyrics(), errors);
+        checkIfDurationIsNegative(songDTO.getDuration(), errors);
     }
 
     private void checkIfCategoryIsProper(final String category, Errors errors) {
         if (!EnumUtils.isValidEnum(Category.class, category)) {
             final String errorCode = MessageFormat.format(
                     "Given category: <{0}> is not within enum values of: <{1}>", category, Category.class);
-            errors.rejectValue("category", errorCode);
+            errors.rejectValue(CATEGORY, errorCode);
         }
     }
-    private void checkIfTitleEmptyOrNUll(final String title, Errors errors) {
+
+    private void checkIfTitleEmptyOrNull(final String title, Errors errors) {
         if (StringUtils.isBlank(title)) {
             final String errorCode = "Title must not be empty nor null";
-            errors.rejectValue("title", errorCode);
+            errors.rejectValue(TITLE, errorCode);
         }
     }
-    private void checkIfLyricsEmptyOrNUll(final String title, Errors errors) {
+
+    private void checkIfLyricsEmptyOrNull(final String title, Errors errors) {
         if (StringUtils.isBlank(title)) {
             final String errorCode = "Lyrics must not be empty nor null";
-            errors.rejectValue("lyrics", errorCode);
+            errors.rejectValue(LYRICS, errorCode);
+        }
+    }
+
+    private void checkIfDurationIsNegative(final Integer duration, Errors errors) {
+        if (duration < 0) {
+            final String errorCode = "Duration must be positive or zero";
+            errors.rejectValue(DURATION, errorCode);
         }
     }
 }
