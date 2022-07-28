@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String title;
     @Enumerated(EnumType.STRING)
     private Category category;
@@ -28,11 +28,11 @@ public class Song {
         this.duration = songDTO.getDuration();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

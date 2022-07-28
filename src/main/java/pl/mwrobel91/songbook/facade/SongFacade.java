@@ -13,4 +13,6 @@ public interface SongFacade {
     void create(SongDTO songDTO);
 
     SongDTO getRandomSong();
+
+    SongDTO getSong(int id);
 }

@@ -29,12 +29,16 @@ public class SongController extends BaseController {
     public List<SongDTO> getSongs() {
         return songFacade.getSongs();
     }
-    @GetMapping(value = "/{category}")
+    @GetMapping(value = "/category/{category}")
     public List<SongDTO> getSongsByCategory(@PathVariable final String category) {
         return songFacade.getSongsByCategory(category);
     }
+    @GetMapping(value = "/{id}")
+    public SongDTO getSong(@PathVariable final int id) {
+        return songFacade.getSong(id);
+    }
     @GetMapping(value = "/random")
-    public SongDTO gerRandomSong() {
+    public SongDTO getRandomSong() {
         return songFacade.getRandomSong();
     }
 
