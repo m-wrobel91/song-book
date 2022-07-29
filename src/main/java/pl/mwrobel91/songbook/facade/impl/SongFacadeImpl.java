@@ -48,7 +48,12 @@ public class SongFacadeImpl implements SongFacade {
     @Override
     public SongDTO getRandomSong() {
         Song randomSong = songService.getRandomSong();
-        //todo: validation if empty?
         return new SongDTO(randomSong);
+    }
+
+    @Override
+    public SongDTO getSong(int id) {
+        Song song = songService.getSong(id);
+        return new SongDTO(song);
     }
 }

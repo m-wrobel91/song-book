@@ -14,4 +14,6 @@ public interface SongService {
     void create(Song song);
 
     Song getRandomSong();
+
+    Song getSong(int id);
 }

@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import pl.mwrobel91.songbook.model.Song;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SongRepository extends JpaRepository<Song, Long> {
 
@@ -21,7 +22,7 @@ public interface SongRepository extends JpaRepository<Song, Long> {
     int countSongs();
 
     @Query(value = "SELECT * FROM songs s WHERE s.id = :id", nativeQuery = true)
-    Song getSongById(@Param("id") long id);
+    Song getSongById(@Param("id") int id);
 
     @Query(value = "SELECT * FROM songs s ORDER BY RAND() LIMIT 1", nativeQuery = true)
     Song getRandomSong();

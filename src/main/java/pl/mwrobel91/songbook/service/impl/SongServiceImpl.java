@@ -6,7 +6,10 @@ import pl.mwrobel91.songbook.model.Song;
 import pl.mwrobel91.songbook.repository.SongRepository;
 import pl.mwrobel91.songbook.service.SongService;
 
+import java.rmi.NoSuchObjectException;
+import java.text.MessageFormat;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static java.util.Objects.requireNonNull;
 
@@ -39,5 +42,10 @@ public class SongServiceImpl implements SongService {
     @Override
     public Song getRandomSong() {
         return songRepository.getRandomSong();
+    }
+
+    @Override
+    public Song getSong(int id) {
+        return songRepository.getSongById(id);
     }
 }
