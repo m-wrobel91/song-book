@@ -19,7 +19,12 @@ class NewSongValidatorTest {
 
     @Test
     void testNewSongValidatorValidCategory() {
-        final SongDTO songDTO = new SongDTO(1, "title", "SUITA_KRAKOWIAK", "lyrics", 60);
+        final SongDTO songDTO = new SongDTO.SongDTOBuilder()
+                .title("title")
+                .category("SUITA_KRAKOWIAK")
+                .lyrics("lyrics")
+                .duration(60)
+                .build();
         final Errors errors = new BeanPropertyBindingResult(songDTO, OBJECT_NAME);
         newSongValidator.validate(songDTO, errors);
         assertNull(errors.getFieldError(FIELD_CATEGORY));
@@ -27,7 +32,12 @@ class NewSongValidatorTest {
 
     @Test
     void testNewSongValidatorInvalidCategory() {
-        final SongDTO songDTO = new SongDTO(1, "title", "category_X", "lyrics", 60);
+        final SongDTO songDTO = new SongDTO.SongDTOBuilder()
+                .title("title")
+                .category("category_X")
+                .lyrics("lyrics")
+                .duration(60)
+                .build();
         final Errors errors = new BeanPropertyBindingResult(songDTO, OBJECT_NAME);
         newSongValidator.validate(songDTO, errors);
         final String errorField = getErrorField(errors);
@@ -36,7 +46,12 @@ class NewSongValidatorTest {
 
     @Test
     void testNewSongValidatorEmptyTitle() {
-        final SongDTO songDTO = new SongDTO(1, "", "SUITA_KRAKOWIAK", "lyrics", 60);
+        final SongDTO songDTO = new SongDTO.SongDTOBuilder()
+                .title("")
+                .category("SUITA_KRAKOWIAK")
+                .lyrics("lyrics")
+                .duration(60)
+                .build();
         final Errors errors = new BeanPropertyBindingResult(songDTO, OBJECT_NAME);
         newSongValidator.validate(songDTO, errors);
         final String errorField = getErrorField(errors);
@@ -45,7 +60,12 @@ class NewSongValidatorTest {
 
     @Test
     void testNewSongValidatorNullTitle() {
-        final SongDTO songDTO = new SongDTO(1, null, "SUITA_KRAKOWIAK", "lyrics", 60);
+        final SongDTO songDTO = new SongDTO.SongDTOBuilder()
+                .title(null)
+                .category("SUITA_KRAKOWIAK")
+                .lyrics("lyrics")
+                .duration(60)
+                .build();
         final Errors errors = new BeanPropertyBindingResult(songDTO, OBJECT_NAME);
         newSongValidator.validate(songDTO, errors);
         final String errorField = getErrorField(errors);
@@ -53,7 +73,12 @@ class NewSongValidatorTest {
     }
     @Test
     void testNewSongValidatorNegativeDuration() {
-        final SongDTO songDTO = new SongDTO(1, "title", "SUITA_KRAKOWIAK", "lyrics", -1);
+        final SongDTO songDTO = new SongDTO.SongDTOBuilder()
+                .title("title")
+                .category("SUITA_KRAKOWIAK")
+                .lyrics("lyrics")
+                .duration(-1)
+                .build();
         final Errors errors = new BeanPropertyBindingResult(songDTO, OBJECT_NAME);
         newSongValidator.validate(songDTO, errors);
         final String errorField = getErrorField(errors);
