@@ -3,21 +3,18 @@ package pl.mwrobel91.songbook.dto;
 import pl.mwrobel91.songbook.model.Song;
 
 public class SongDTO {
-    private int id;
-    private String title;
-    private String category;
-    private String lyrics;
-    private int duration;
+    private final int id;
+    private final String title;
+    private final String category;
+    private final String lyrics;
+    private final int duration;
 
-    public SongDTO() {
-    }
-
-    public SongDTO(int id, String title, String category, String lyrics, int duration) {
-        this.id = id;
-        this.title = title;
-        this.category = category;
-        this.lyrics = lyrics;
-        this.duration = duration;
+    private SongDTO(SongDTOBuilder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.category = builder.category;
+        this.lyrics = builder.lyrics;
+        this.duration = builder.duration;
     }
     // populator Constructor
     public SongDTO(Song song) {
@@ -32,39 +29,49 @@ public class SongDTO {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getLyrics() {
         return lyrics;
-    }
-
-    public void setLyrics(String lyrics) {
-        this.lyrics = lyrics;
     }
 
     public int getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public static class SongDTOBuilder {
+        private int id;
+        private String title;
+        private String category;
+        private String lyrics;
+        private int duration;
+
+        public SongDTOBuilder title (String title) {
+            this.title = title;
+            return this;
+        }
+        public SongDTOBuilder category (String category) {
+            this.category = category;
+            return this;
+        }
+        public SongDTOBuilder lyrics (String lyrics) {
+            this.lyrics = lyrics;
+            return this;
+        }
+        public SongDTOBuilder duration (int duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        public SongDTO build() {
+            return new SongDTO(this);
+        }
+
     }
 }
