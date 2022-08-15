@@ -21,7 +21,7 @@ public class Song {
     public Song() {
     }
 
-    public Song(SongDTO songDTO) {
+    public Song(final SongDTO songDTO) {
         this.title = songDTO.getTitle();
         this.category = Category.valueOf(songDTO.getCategory());
         this.lyrics = songDTO.getLyrics();
@@ -32,7 +32,7 @@ public class Song {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -40,7 +40,7 @@ public class Song {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -48,7 +48,7 @@ public class Song {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(final Category category) {
         this.category = category;
     }
 
@@ -56,7 +56,7 @@ public class Song {
         return lyrics;
     }
 
-    public void setLyrics(String lyrics) {
+    public void setLyrics(final String lyrics) {
         this.lyrics = lyrics;
     }
 
@@ -64,7 +64,7 @@ public class Song {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(final int duration) {
         this.duration = duration;
     }
 }

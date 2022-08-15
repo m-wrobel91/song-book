@@ -48,7 +48,7 @@ public class SongController extends BaseController {
     }
 
     @PostMapping(value = "/")
-    public void create(@RequestBody SongDTO songDTO) {
+    public void create(@RequestBody final SongDTO songDTO) {
         validate(songDTO, "SongDTO", newSongValidator);
         songFacade.create(songDTO);
     }

@@ -5,7 +5,7 @@ import java.util.Objects;
 public class WebserviceValidationException extends RuntimeException {
     private final transient Object validationObject;
 
-    public WebserviceValidationException(Object validationObject) {
+    public WebserviceValidationException(final Object validationObject) {
         super(Objects.toString(validationObject));
         this.validationObject = validationObject;
     }

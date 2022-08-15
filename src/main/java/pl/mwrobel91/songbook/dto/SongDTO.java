@@ -9,7 +9,7 @@ public class SongDTO {
     private final String lyrics;
     private final int duration;
 
-    private SongDTO(SongDTOBuilder builder) {
+    private SongDTO(final SongDTOBuilder builder) {
         this.id = builder.id;
         this.title = builder.title;
         this.category = builder.category;
@@ -17,7 +17,7 @@ public class SongDTO {
         this.duration = builder.duration;
     }
     // populator Constructor
-    public SongDTO(Song song) {
+    public SongDTO(final Song song) {
         this.id = song.getId();
         this.title = song.getTitle();
         this.category = song.getCategory().getCategory();
@@ -52,19 +52,19 @@ public class SongDTO {
         private String lyrics;
         private int duration;
 
-        public SongDTOBuilder title (String title) {
+        public SongDTOBuilder title (final String title) {
             this.title = title;
             return this;
         }
-        public SongDTOBuilder category (String category) {
+        public SongDTOBuilder category (final String category) {
             this.category = category;
             return this;
         }
-        public SongDTOBuilder lyrics (String lyrics) {
+        public SongDTOBuilder lyrics (final String lyrics) {
             this.lyrics = lyrics;
             return this;
         }
-        public SongDTOBuilder duration (int duration) {
+        public SongDTOBuilder duration (final int duration) {
             this.duration = duration;
             return this;
         }
