@@ -31,7 +31,7 @@ public class SongFacadeImpl implements SongFacade {
     }
 
     @Override
-    public List<SongDTO> getSongsByCategory(String category) {
+    public List<SongDTO> getSongsByCategory(final String category) {
         return songService.getSongsByCategory(category)
                 .stream()
                 .filter(Objects::nonNull)
@@ -40,20 +40,20 @@ public class SongFacadeImpl implements SongFacade {
     }
 
     @Override
-    public void create(SongDTO songDTO) {
-        Song song = new Song(songDTO);
+    public void create(final SongDTO songDTO) {
+        final Song song = new Song(songDTO);
         songService.create(song);
     }
 
     @Override
     public SongDTO getRandomSong() {
-        Song randomSong = songService.getRandomSong();
+        final Song randomSong = songService.getRandomSong();
         return new SongDTO(randomSong);
     }
 
     @Override
-    public SongDTO getSong(int id) {
-        Song song = songService.getSong(id);
+    public SongDTO getSong(final int id) {
+        final Song song = songService.getSong(id);
         return new SongDTO(song);
     }
 

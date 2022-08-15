@@ -29,13 +29,13 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public List<Song> getSongsByCategory(String category) {
+    public List<Song> getSongsByCategory(final String category) {
         requireNonNull(category);
         return songRepository.getSongsByCategory(category);
     }
 
     @Override
-    public void create(Song song) {
+    public void create(final Song song) {
         songRepository.save(song);
     }
 
@@ -45,7 +45,7 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public Song getSong(int id) {
+    public Song getSong(final int id) {
         return songRepository.getSongById(id);
     }
 

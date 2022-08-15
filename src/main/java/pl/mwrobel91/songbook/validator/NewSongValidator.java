@@ -19,20 +19,20 @@ public class NewSongValidator implements Validator {
     public static final String CATEGORY = "category";
 
     @Override
-    public boolean supports(Class<?> clazz) {
+    public boolean supports(final Class<?> clazz) {
         return SongDTO.class.equals(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
-        SongDTO songDTO = (SongDTO) target;
+    public void validate(final Object target, final Errors errors) {
+        final SongDTO songDTO = (SongDTO) target;
         checkIfCategoryIsProper(songDTO.getCategory(), errors);
         checkIfTitleEmptyOrNull(songDTO.getTitle(), errors);
         checkIfLyricsEmptyOrNull(songDTO.getLyrics(), errors);
         checkIfDurationIsNegative(songDTO.getDuration(), errors);
     }
 
-    private void checkIfCategoryIsProper(final String category, Errors errors) {
+    private void checkIfCategoryIsProper(final String category, final Errors errors) {
         if (!EnumUtils.isValidEnum(Category.class, category)) {
             final String errorCode = MessageFormat.format(
                     "Given category: <{0}> is not within enum values of: <{1}>", category, Category.class);
@@ -40,21 +40,21 @@ public class NewSongValidator implements Validator {
         }
     }
 
-    private void checkIfTitleEmptyOrNull(final String title, Errors errors) {
+    private void checkIfTitleEmptyOrNull(final String title, final Errors errors) {
         if (StringUtils.isBlank(title)) {
             final String errorCode = "Title must not be empty nor null";
             errors.rejectValue(TITLE, errorCode);
         }
     }
 
-    private void checkIfLyricsEmptyOrNull(final String title, Errors errors) {
+    private void checkIfLyricsEmptyOrNull(final String title, final Errors errors) {
         if (StringUtils.isBlank(title)) {
             final String errorCode = "Lyrics must not be empty nor null";
             errors.rejectValue(LYRICS, errorCode);
         }
     }
 
-    private void checkIfDurationIsNegative(final Integer duration, Errors errors) {
+    private void checkIfDurationIsNegative(final Integer duration, final Errors errors) {
         if (duration < 0) {
             final String errorCode = "Duration must be positive or zero";
             errors.rejectValue(DURATION, errorCode);

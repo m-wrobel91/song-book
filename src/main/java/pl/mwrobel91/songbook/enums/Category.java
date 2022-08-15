@@ -6,9 +6,9 @@ public enum Category {
     PRZERYWNIKI_SLASKIE("Przerywniki śląskie"),
     SUITA_KRAKOWIAK("Krakowiak");
 
-    private String category;
+    private final String category;
 
-    Category(String category) {
+    Category(final String category) {
         this.category = category;
     }
 
