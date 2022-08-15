@@ -56,4 +56,10 @@ public class SongFacadeImpl implements SongFacade {
         Song song = songService.getSong(id);
         return new SongDTO(song);
     }
+
+    @Override
+    public List<SongDTO> getSongByPhrase(final String searchPhrase) {
+        final List<Song> songList = songService.getSongByPhrase(searchPhrase);
+        return songList.stream().map(SongDTO::new).collect(Collectors.toList());
+    }
 }

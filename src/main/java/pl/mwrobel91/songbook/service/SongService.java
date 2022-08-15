@@ -16,4 +16,6 @@ public interface SongService {
     Song getRandomSong();
 
     Song getSong(int id);
+
+    List<Song> getSongByPhrase(String searchPhrase);
 }
