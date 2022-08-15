@@ -27,8 +27,8 @@ public interface SongRepository extends JpaRepository<Song, Long> {
     @Query(value = "SELECT * FROM songs s ORDER BY RAND() LIMIT 1", nativeQuery = true)
     Song getRandomSong();
 
-    @Query(value = "SELECT * FROM songs s " +
-            "WHERE s.title LIKE %:searchPhrase% OR s.lyrics LIKE %:searchPhrase%", nativeQuery = true)
+    @Query(value = "SELECT * FROM songs s WHERE LOWER(s.title) LIKE LOWER(CONCAT('%', :searchPhrase, '%')) " +
+            " OR LOWER(s.lyrics) LIKE LOWER(CONCAT('%', :searchPhrase, '%'))", nativeQuery = true)
     List<Song> getSongByPhrase(@Param("searchPhrase") final String searchPhrase);
 }
 
