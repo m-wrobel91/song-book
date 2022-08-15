@@ -15,4 +15,6 @@ public interface SongFacade {
     SongDTO getRandomSong();
 
     SongDTO getSong(int id);
+
+    List<SongDTO> getSongByPhrase(String searchPhrase);
 }

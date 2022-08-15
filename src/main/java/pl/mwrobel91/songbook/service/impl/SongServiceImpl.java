@@ -48,4 +48,9 @@ public class SongServiceImpl implements SongService {
     public Song getSong(int id) {
         return songRepository.getSongById(id);
     }
+
+    @Override
+    public List<Song> getSongByPhrase(final String searchPhrase) {
+        return songRepository.getSongByPhrase(searchPhrase);
+    }
 }

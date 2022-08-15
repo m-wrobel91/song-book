@@ -37,6 +37,11 @@ public class SongController extends BaseController {
     public SongDTO getSong(@PathVariable final int id) {
         return songFacade.getSong(id);
     }
+
+    @GetMapping(value = "/search/{searchPhrase}")
+    public List<SongDTO> getSongByPhrase(@PathVariable final String searchPhrase) {
+        return songFacade.getSongByPhrase(searchPhrase);
+    }
     @GetMapping(value = "/random")
     public SongDTO getRandomSong() {
         return songFacade.getRandomSong();
