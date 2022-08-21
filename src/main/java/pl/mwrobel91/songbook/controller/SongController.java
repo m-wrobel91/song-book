@@ -8,7 +8,10 @@ import pl.mwrobel91.songbook.facade.SongFacade;
 
 import java.util.List;
 
+import static pl.mwrobel91.songbook.constant.CrossOriginConstants.ALLOWED_ORIGIN;
+
 @RestController
+@CrossOrigin(origins = ALLOWED_ORIGIN)
 @RequestMapping("/song")
 public class SongController extends BaseController {
 
