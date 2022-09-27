@@ -11,10 +11,6 @@ table {
 .table-body{
     text-align: left;
     white-space: pre-wrap;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 10px;
 }
 
 .table-footer{
