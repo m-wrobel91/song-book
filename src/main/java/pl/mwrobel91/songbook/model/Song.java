@@ -15,6 +15,8 @@ public class Song {
     private String title;
     @Enumerated(EnumType.STRING)
     private Category category;
+    @Lob
+    @Column(name = "lyrics", columnDefinition="CLOB")
     private String lyrics;
     private int duration;
 
