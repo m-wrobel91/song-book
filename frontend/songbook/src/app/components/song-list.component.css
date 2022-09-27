@@ -1,0 +1,29 @@
+table {
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-header{
+    text-align: center;
+}
+.table-button-container{
+    text-align: right;
+}
+
+.table-body{
+    text-align: left;
+    white-space: pre-wrap;
+}
+.text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+.table-footer{
+    text-align: center;
+}
