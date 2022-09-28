@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Import Font Awesome icon pack-->
+  <script src="https://kit.fontawesome.com/0ee8542cab.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="pure-g center">
+    <div class="pure-u-1">
+      <h2>SONGBOOK APP</h2>
+      <i class="fa-solid fa-thumbs-up fa-5x"></i>
+      <div class="navbar">
+        <div class="pure-menu pure-menu-horizontal">
+
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+              <a LinkRouter="/search-song/:phrase" class="pure-menu-link"><i class="fa-thin fa-magnifying-glass"></i>Search</a>
+            </li>
+            <li class="pure-menu-item">
+              <a routerLink='/randomSong'class="pure-menu-link">Random Song</a>
+            </li>
+            <li class="pure-menu-item">
+              <a routerLink='song-list' class="pure-menu-link">SongList</a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link">Categories</a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link"><i class="fa-solid fa-user"></i>Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pure-u-1">
+      <h2> body </h2>
+      <router-outlet></router-outlet>
+
+    </div>
+    <div class="pure-u-1">
+      <h2> footer </h2>
+      <p> footer footer footer </p>
+    </div>
+  </div>
+</body>

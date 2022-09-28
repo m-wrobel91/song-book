@@ -1,0 +1,18 @@
+table {
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-header{
+    text-align: center;
+}
+
+.table-body{
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.table-footer{
+    text-align: center;
+}

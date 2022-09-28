@@ -1,0 +1,32 @@
+<div class="songList">
+    <h1>{{pageTitle}}</h1>
+
+    <div *ngIf='songList.length'>
+        <div *ngFor='let song of songList'>
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th class="table-header">
+                            <h4>{{song.title}}</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-body">
+                        <td>
+                            <div class="text">
+                                {{song.lyrics}}</div>                        
+                        <div class="table-button-container">
+                            <button> Go to </button>
+                        </div>
+                        </td>
+                    </tr>
+                    <tr class="table-footer">
+                        <td>#{{song.category}} {{song.duration}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
