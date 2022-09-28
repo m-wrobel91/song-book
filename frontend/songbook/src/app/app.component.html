@@ -11,17 +11,25 @@
 <body>
   <div class="pure-g center">
     <div class="pure-u-1">
-      <h2>SONGBOOK APP</h2>
-      <i class="fa-solid fa-thumbs-up fa-5x"></i>
+      <div class="container">
+        <div class="container-item">
+          <img src="/assets/logo.png" class="logo" alt="logo_ZPiT_Siemianowice">
+        </div>
+        <div class="container-item">
+          <h2>SONGBOOK APP</h2>
+        </div>
+      </div>
+
       <div class="navbar">
         <div class="pure-menu pure-menu-horizontal">
 
           <ul class="pure-menu-list">
             <li class="pure-menu-item">
-              <a LinkRouter="/search-song/:phrase" class="pure-menu-link"><i class="fa-thin fa-magnifying-glass"></i>Search</a>
+              <a LinkRouter="/search-song/:phrase" class="pure-menu-link"><i
+                  class="fa-thin fa-magnifying-glass"></i>Search</a>
             </li>
             <li class="pure-menu-item">
-              <a routerLink='/randomSong'class="pure-menu-link">Random Song</a>
+              <a routerLink='/randomSong' class="pure-menu-link">Random Song</a>
             </li>
             <li class="pure-menu-item">
               <a routerLink='song-list' class="pure-menu-link">SongList</a>
