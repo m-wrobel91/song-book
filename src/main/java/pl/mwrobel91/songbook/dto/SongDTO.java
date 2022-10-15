@@ -20,7 +20,7 @@ public class SongDTO {
     public SongDTO(final Song song) {
         this.id = song.getId();
         this.title = song.getTitle();
-        this.category = song.getCategory().getCategory();
+        this.category = song.getCategory().getName();
         this.lyrics = song.getLyrics();
         this.duration = song.getDuration();
     }
@@ -48,7 +48,7 @@ public class SongDTO {
     public static class SongDTOBuilder {
         private int id;
         private String title;
-        private String category;
+        private String category; // todo: put here CategoryDTO
         private String lyrics;
         private int duration;
 

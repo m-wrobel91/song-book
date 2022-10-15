@@ -1,4 +1,4 @@
-INSERT INTO songs (id, title, category, duration, lyrics) VALUES (1, 'Hej na krakowskim rynku', 'PRZERYWNIKI_SLASKIE', 60, '
+INSERT INTO songs (id, category_id, title, duration, lyrics) VALUES (1, 12, 'Hej na krakowskim rynku', 60, '
 Hej na krakowskim rynku
 Maki i powoje
 Chłopcy i dziewczęta
@@ -21,7 +21,7 @@ Sprzedają serdaki
 Kupują korale
 Ten Lajkonik …
 ');
-INSERT INTO songs (id, title, category, duration, lyrics) VALUES (2, 'Starzyk', 'PRZERYWNIKI_SLASKIE', 60, '
+INSERT INTO songs (id, category_id, title, duration, lyrics) VALUES (2, 3, 'Starzyk', 60, '
 1. Idę sobie przez podwórze
 I pyk pyk fajeczkę kurzę
 Mam króliki we chlywiku
@@ -54,7 +54,7 @@ Dziś fedruje za mnie wnuk
 
 Pyk pyk pyk z fajeczki ...
 ');
-INSERT INTO songs (id, title, category, duration, lyrics) VALUES (3, 'Albośmyto jacy tacy', 'SUITA_KRAKOWIAK',  60, '
+INSERT INTO songs (id, category_id, title, duration, lyrics) VALUES (3, 11, 'Albośmyto jacy tacy', 60, '
 Albośmy to jacy tacy ino chłopcy Krakowiacy
 Czerwona czapeczka na cal podkóweczka
 I biała sukmana danaż moja dana
@@ -64,7 +64,7 @@ Jedwabisiem wyszywana bryzowana lamowana
 Wokolusienieczko moja kochaneczko
 Wokolusienieczko moja kochaneczko
 ');
-INSERT INTO songs (id, title, category, duration, lyrics) VALUES (4, 'Oj krakowiaka śpiwom', 'SUITA_KRAKOWIAK', 60,'
+INSERT INTO songs (id, category_id, title, duration, lyrics) VALUES (4, 12, 'Oj krakowiaka śpiwom', 60,'
 Oj Krakowiaka śpiwum innego nie umiem
 Teraźniejszej mowy wcale nie rozumiem
 
