@@ -13,7 +13,7 @@ public interface SongRepository extends JpaRepository<Song, Long> {
     List<Song> getSongs();
 
     @Query(value ="SELECT * FROM songs s WHERE s.category_id = :category", nativeQuery = true)
-    List<Song> getSongsByCategory(@Param("category") String category); // todo int? long?
+    List<Song> getSongsByCategory(@Param("category") int category); // todo int? long?
 
     @Query(value = "SELECT COUNT (id) FROM songs", nativeQuery = true)
     int countSongs();

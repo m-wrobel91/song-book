@@ -26,8 +26,7 @@ public class Song {
 
     public Song(final SongDTO songDTO) {
         this.title = songDTO.getTitle();
-        this.category= new Category(); // todo
-        //this.category = Category.valueOf(songDTO.getCategory());
+        this.category = category; // todo consider using populator and reverse-populator
         this.lyrics = songDTO.getLyrics();
         this.duration = songDTO.getDuration();
     }

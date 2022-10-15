@@ -31,8 +31,8 @@ public class SongFacadeImpl implements SongFacade {
     }
 
     @Override
-    public List<SongDTO> getSongsByCategory(final String category) {
-        return songService.getSongsByCategory(category)
+    public List<SongDTO> getSongsByCategory(final int categoryId) {
+        return songService.getSongsByCategory(categoryId)
                 .stream()
                 .filter(Objects::nonNull)
                 .map(SongDTO::new)

@@ -29,9 +29,8 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public List<Song> getSongsByCategory(final String category) {
-        requireNonNull(category);
-        return songRepository.getSongsByCategory(category);
+    public List<Song> getSongsByCategory(final int categoryId) {
+        return songRepository.getSongsByCategory(categoryId);
     }
 
     @Override

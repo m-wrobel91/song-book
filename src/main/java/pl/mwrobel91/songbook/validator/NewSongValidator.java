@@ -34,18 +34,18 @@ public class NewSongValidator implements Validator {
     @Override
     public void validate(final Object target, final Errors errors) {
         final SongDTO songDTO = (SongDTO) target;
-        checkIfCategoryIsProper(songDTO.getCategory(), errors); //to add mocking
+        checkIfCategoryIsProper(songDTO.getCategory(), errors);
         checkIfTitleEmptyOrNull(songDTO.getTitle(), errors);
         checkIfLyricsEmptyOrNull(songDTO.getLyrics(), errors);
         checkIfDurationIsNegative(songDTO.getDuration(), errors);
     }
 
-    private void checkIfCategoryIsProper(final String category, final Errors errors) {
+    private void checkIfCategoryIsProper(final CategoryDTO category, final Errors errors) {
         List<String> categories = categoryFacade.getCategories()
                 .stream()
                 .map(CategoryDTO::getName)
                 .collect(Collectors.toList());
-        if (!categories.contains(category)) {
+        if (!categories.contains(category.getName())) {
             final String errorCode = MessageFormat.format(
                     "Given category: <{0}> is not within possible values of categories", category);
             errors.rejectValue(CATEGORY, errorCode);

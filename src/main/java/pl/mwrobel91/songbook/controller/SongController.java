@@ -32,9 +32,9 @@ public class SongController extends BaseController {
     public List<SongDTO> getSongs() {
         return songFacade.getSongs();
     }
-    @GetMapping(value = "/category/{category}")
-    public List<SongDTO> getSongsByCategory(@PathVariable final String category) {
-        return songFacade.getSongsByCategory(category);
+    @GetMapping(value = "/category/{categoryId}")
+    public List<SongDTO> getSongsByCategory(@PathVariable final int categoryId) {
+        return songFacade.getSongsByCategory(categoryId);
     }
     @GetMapping(value = "/{id}")
     public SongDTO getSong(@PathVariable final int id) {

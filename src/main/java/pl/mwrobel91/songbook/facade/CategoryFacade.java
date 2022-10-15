@@ -7,4 +7,6 @@ import java.util.List;
 public interface CategoryFacade {
     List<CategoryDTO> getCategories();
 
+    CategoryDTO getCategory(int categoryId);
+
 }

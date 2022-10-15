@@ -5,7 +5,7 @@ import pl.mwrobel91.songbook.model.Song;
 public class SongDTO {
     private final int id;
     private final String title;
-    private final String category;
+    private final CategoryDTO category;
     private final String lyrics;
     private final int duration;
 
@@ -20,7 +20,7 @@ public class SongDTO {
     public SongDTO(final Song song) {
         this.id = song.getId();
         this.title = song.getTitle();
-        this.category = song.getCategory().getName();
+        this.category = new CategoryDTO(song.getCategory());
         this.lyrics = song.getLyrics();
         this.duration = song.getDuration();
     }
@@ -33,7 +33,7 @@ public class SongDTO {
         return title;
     }
 
-    public String getCategory() {
+    public CategoryDTO getCategory() {
         return category;
     }
 
@@ -48,7 +48,7 @@ public class SongDTO {
     public static class SongDTOBuilder {
         private int id;
         private String title;
-        private String category; // todo: put here CategoryDTO
+        private CategoryDTO category;
         private String lyrics;
         private int duration;
 
@@ -56,7 +56,7 @@ public class SongDTO {
             this.title = title;
             return this;
         }
-        public SongDTOBuilder category (final String category) {
+        public SongDTOBuilder category (final CategoryDTO category) {
             this.category = category;
             return this;
         }
