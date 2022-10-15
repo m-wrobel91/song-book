@@ -9,7 +9,7 @@ public interface SongService {
 
     List<Song> getSongs();
 
-    List<Song> getSongsByCategory(String category);
+    List<Song> getSongsByCategory(int categoryId);
 
     void create(Song song);
 

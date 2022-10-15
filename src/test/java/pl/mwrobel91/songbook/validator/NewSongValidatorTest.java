@@ -10,7 +10,10 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import pl.mwrobel91.songbook.SongBookApplication;
+import pl.mwrobel91.songbook.dto.CategoryDTO;
 import pl.mwrobel91.songbook.dto.SongDTO;
+import pl.mwrobel91.songbook.facade.CategoryFacade;
+import pl.mwrobel91.songbook.model.Category;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -21,6 +24,8 @@ class NewSongValidatorTest {
 
     @Autowired
     private NewSongValidator newSongValidator;
+    @Autowired
+    private CategoryFacade categoryFacade;
     private static final String OBJECT_NAME = "songDTO";
     private static final String FIELD_CATEGORY = "category";
     private static final String FIELD_TITLE = "title";
@@ -30,7 +35,7 @@ class NewSongValidatorTest {
     void testNewSongValidatorValidCategory() {
         final SongDTO songDTO = new SongDTO.SongDTOBuilder()
                 .title("title")
-                .category("Krakowiak")
+                .category(categoryFacade.getCategory(11))
                 .lyrics("lyrics")
                 .duration(60)
                 .build();
@@ -43,7 +48,7 @@ class NewSongValidatorTest {
     void testNewSongValidatorInvalidCategory() {
         final SongDTO songDTO = new SongDTO.SongDTOBuilder()
                 .title("title")
-                .category("category_X")
+                .category(new CategoryDTO(new Category()))
                 .lyrics("lyrics")
                 .duration(60)
                 .build();
@@ -57,7 +62,7 @@ class NewSongValidatorTest {
     void testNewSongValidatorEmptyTitle() {
         final SongDTO songDTO = new SongDTO.SongDTOBuilder()
                 .title("")
-                .category("Krakowiak")
+                .category(categoryFacade.getCategory(11))
                 .lyrics("lyrics")
                 .duration(60)
                 .build();
@@ -71,7 +76,7 @@ class NewSongValidatorTest {
     void testNewSongValidatorNullTitle() {
         final SongDTO songDTO = new SongDTO.SongDTOBuilder()
                 .title(null)
-                .category("Krakowiak")
+                .category(categoryFacade.getCategory(11))
                 .lyrics("lyrics")
                 .duration(60)
                 .build();
@@ -84,7 +89,7 @@ class NewSongValidatorTest {
     void testNewSongValidatorNegativeDuration() {
         final SongDTO songDTO = new SongDTO.SongDTOBuilder()
                 .title("title")
-                .category("Krakowiak")
+                .category(categoryFacade.getCategory(11))
                 .lyrics("lyrics")
                 .duration(-1)
                 .build();

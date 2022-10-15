@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.mwrobel91.songbook.dto.CategoryDTO;
 import pl.mwrobel91.songbook.facade.CategoryFacade;
+import pl.mwrobel91.songbook.model.Category;
 import pl.mwrobel91.songbook.service.CategoryService;
 
 import java.util.List;
@@ -27,5 +28,11 @@ public class CategoryFacadeImpl implements CategoryFacade {
                 .filter(Objects::nonNull)
                 .map(CategoryDTO::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public CategoryDTO getCategory(int categoryId) {
+        Category category = categoryService.getCategory(categoryId);
+        return  new CategoryDTO(category);
     }
 }
