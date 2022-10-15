@@ -6,5 +6,5 @@ public class CrossOriginConstants {
         // lock instantiation
     }
 
-    public final static String ALLOWED_ORIGIN = "http://localhost:34695";
+    public final static String ALLOWED_ORIGIN = "http://localhost:4200";
 }
