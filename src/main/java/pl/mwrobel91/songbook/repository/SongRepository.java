@@ -6,17 +6,14 @@ import org.springframework.data.repository.query.Param;
 import pl.mwrobel91.songbook.model.Song;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface SongRepository extends JpaRepository<Song, Long> {
-
-    //@Query("SELECT s FROM songs s")
 
     @Query(value = "SELECT * FROM songs", nativeQuery = true)
     List<Song> getSongs();
 
-    @Query(value ="SELECT * FROM songs s WHERE s.category = :category", nativeQuery = true)
-    List<Song> getSongsByCategory(@Param("category") String category);
+    @Query(value ="SELECT * FROM songs s WHERE s.category_id = :category", nativeQuery = true)
+    List<Song> getSongsByCategory(@Param("category") String category); // todo int? long?
 
     @Query(value = "SELECT COUNT (id) FROM songs", nativeQuery = true)
     int countSongs();

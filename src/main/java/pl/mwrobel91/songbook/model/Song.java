@@ -2,7 +2,7 @@ package pl.mwrobel91.songbook.model;
 
 
 import pl.mwrobel91.songbook.dto.SongDTO;
-import pl.mwrobel91.songbook.enums.Category;
+import pl.mwrobel91.songbook.model.Category;
 
 import javax.persistence.*;
 
@@ -13,7 +13,8 @@ public class Song {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
     @Lob
     @Column(name = "lyrics", columnDefinition="CLOB")
@@ -25,7 +26,8 @@ public class Song {
 
     public Song(final SongDTO songDTO) {
         this.title = songDTO.getTitle();
-        this.category = Category.valueOf(songDTO.getCategory());
+        this.category= new Category(); // todo
+        //this.category = Category.valueOf(songDTO.getCategory());
         this.lyrics = songDTO.getLyrics();
         this.duration = songDTO.getDuration();
     }

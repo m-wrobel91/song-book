@@ -1,0 +1,17 @@
+INSERT INTO categories (id, name) VALUES (1, 'Suita ślaska - górnicza');
+INSERT INTO categories (id, name) VALUES (2, 'Suita ślaska - rozbark');
+INSERT INTO categories (id, name) VALUES (3, 'Przerywniki śląskie');
+INSERT INTO categories (id, name) VALUES (4, 'Suita łowicka');
+INSERT INTO categories (id, name) VALUES (5, 'Przerywniki łowickie');
+INSERT INTO categories (id, name) VALUES (6, 'Tańce górali żywieckich');
+INSERT INTO categories (id, name) VALUES (7, 'Przerywniki żywieckie');
+INSERT INTO categories (id, name) VALUES (8, 'Tańce górali Beskidu Śląskiego');
+INSERT INTO categories (id, name) VALUES (9, 'Tańce mieszczan żywieckich');
+INSERT INTO categories (id, name) VALUES (10, 'Polonez powitalny');
+INSERT INTO categories (id, name) VALUES (11, 'Krakowiak');
+INSERT INTO categories (id, name) VALUES (12, 'Przerywniki krakowskie');
+INSERT INTO categories (id, name) VALUES (13, 'Tańce opoczyńskie');
+INSERT INTO categories (id, name) VALUES (14, 'Przerywniki opoczyńskie');
+INSERT INTO categories (id, name) VALUES (15, 'Przerywniki różne');
+INSERT INTO categories (id, name) VALUES (16, 'Przerywniki rzeszowskie');
+INSERT INTO categories (id, name) VALUES (17, 'Suita Rzeszowska');
