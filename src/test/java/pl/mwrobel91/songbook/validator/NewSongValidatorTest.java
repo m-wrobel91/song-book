@@ -48,7 +48,7 @@ class NewSongValidatorTest {
     void testNewSongValidatorInvalidCategory() {
         final SongDTO songDTO = new SongDTO.SongDTOBuilder()
                 .title("title")
-                .category(new CategoryDTO(new Category()))
+                .category(new CategoryDTO())
                 .lyrics("lyrics")
                 .duration(60)
                 .build();

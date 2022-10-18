@@ -12,24 +12,24 @@ public class Converter<SOURCE, TARGET> {
     private final Class<TARGET> targetClass;
     private final List<Populator> populators = new ArrayList<>();
 
-    public Converter(Class<TARGET> targetClass, Populator<SOURCE, TARGET>... populators) {
+    public Converter(final Class<TARGET> targetClass, final Populator<SOURCE, TARGET>... populators) {
         this.targetClass = targetClass;
         if (ArrayUtils.isNotEmpty(populators)) {
-            for (Populator<SOURCE, TARGET> populator : populators) {
+            for (final Populator<SOURCE, TARGET> populator : populators) {
                 addPopulator(populator);
             }
         }
     }
 
-    public TARGET convert(SOURCE source) {
-        TARGET target = createFromClass();
-        for (Populator populator : this.populators) {
+    public TARGET convert(final SOURCE source) {
+        final TARGET target = createFromClass();
+        for (final Populator populator : this.populators) {
             populator.populate(source, target);
         }
         return target;
     }
 
-    public List<TARGET> convertAll(List<SOURCE> objectsToBeConverted) {
+    public List<TARGET> convertAll(final List<SOURCE> objectsToBeConverted) {
         List<TARGET> convertedList = new ArrayList<>();
         for (SOURCE objectToBeConverted : objectsToBeConverted) {
             convertedList.add(convert(objectToBeConverted));
@@ -45,7 +45,7 @@ public class Converter<SOURCE, TARGET> {
         }
     }
 
-    public void addPopulator(Populator<SOURCE, TARGET> populator) {
+    public void addPopulator(final Populator<SOURCE, TARGET> populator) {
         if (Objects.nonNull(populator)) {
             populators.add(populator);
         }

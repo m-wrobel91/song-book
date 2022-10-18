@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class CategoryIdPopulator implements Populator<Category, CategoryDTO> {
     @Override
-    public void populate(Category source, CategoryDTO target) {
+    public void populate(final Category source, final CategoryDTO target) {
         Objects.requireNonNull(source);
         Objects.requireNonNull(target);
         target.setId(source.getId());

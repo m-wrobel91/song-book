@@ -10,7 +10,7 @@ public class CategoryDTO {
     private String name;
     private List<SongDTO> songs;
 
-    public CategoryDTO(Category category) {
+    public CategoryDTO(final Category category) {
         this.id = category.getId();
         this.name = category.getName();;
     }

@@ -18,7 +18,7 @@ public class CategoryFacadeImpl implements CategoryFacade {
 
     private final Converter<Category, CategoryDTO> categoryWithoutSongsConverter;
 
-    public CategoryFacadeImpl(CategoryService categoryService, Converter<Category, CategoryDTO> categoryWithoutSongsConverter) {
+    public CategoryFacadeImpl(final CategoryService categoryService, final Converter<Category, CategoryDTO> categoryWithoutSongsConverter) {
         this.categoryService = categoryService;
         this.categoryWithoutSongsConverter = categoryWithoutSongsConverter;
     }
@@ -29,8 +29,8 @@ public class CategoryFacadeImpl implements CategoryFacade {
     }
 
     @Override
-    public CategoryDTO getCategory(int categoryId) {
-        Category category = categoryService.getCategory(categoryId);
-        return  new CategoryDTO(category);
+    public CategoryDTO getCategory(final int categoryId) {
+        final Category category = categoryService.getCategory(categoryId);
+        return  categoryWithoutSongsConverter.convert(category);
     }
 }

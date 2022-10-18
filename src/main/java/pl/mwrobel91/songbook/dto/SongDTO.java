@@ -20,7 +20,7 @@ public class SongDTO {
     public SongDTO(final Song song) {
         this.id = song.getId();
         this.title = song.getTitle();
-        this.category = new CategoryDTO(song.getCategory());
+        this.category = new CategoryDTO(song.getCategory()); //todo: to be replaced
         this.lyrics = song.getLyrics();
         this.duration = song.getDuration();
     }
