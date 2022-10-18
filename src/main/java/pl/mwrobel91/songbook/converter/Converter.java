@@ -1,5 +1,6 @@
-package converter;
+package pl.mwrobel91.songbook.converter;
 
+import org.apache.commons.lang3.ArrayUtils;
 import pl.mwrobel91.songbook.populator.Populator;
 
 import java.util.ArrayList;
@@ -8,15 +9,16 @@ import java.util.Objects;
 
 public class Converter<SOURCE, TARGET> {
 
-    private Class<TARGET> targetClass;
-    private List<Populator> populators = new ArrayList<>();
+    private final Class<TARGET> targetClass;
+    private final List<Populator> populators = new ArrayList<>();
 
-    public Converter(Class<TARGET> targetClass) {
+    public Converter(Class<TARGET> targetClass, Populator<SOURCE, TARGET>... populators) {
         this.targetClass = targetClass;
-    }
-
-    public static <SOURCE, TARGET> Converter<SOURCE,TARGET> of (Class<TARGET> targetClass) {
-        return new Converter<SOURCE, TARGET>(targetClass);
+        if (ArrayUtils.isNotEmpty(populators)) {
+            for (Populator<SOURCE, TARGET> populator : populators) {
+                addPopulator(populator);
+            }
+        }
     }
 
     public TARGET convert(SOURCE source) {
@@ -47,12 +49,5 @@ public class Converter<SOURCE, TARGET> {
         if (Objects.nonNull(populator)) {
             populators.add(populator);
         }
-    }
-
-    public <SOURCE, TARGET> Converter<SOURCE, TARGET> withPopulator(Populator<SOURCE, TARGET> populator) {
-        if (Objects.nonNull(populator)) {
-            populators.add(populator);
-        }
-        return (Converter<SOURCE, TARGET>) this;
     }
 }
