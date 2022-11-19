@@ -22,7 +22,7 @@ public class CategoryDTO {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -30,7 +30,7 @@ public class CategoryDTO {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -38,7 +38,7 @@ public class CategoryDTO {
         return songs;
     }
 
-    public void setSongs(List<SongDTO> songs) {
+    public void setSongs(final List<SongDTO> songs) {
         this.songs = songs;
     }
 }

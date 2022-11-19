@@ -4,12 +4,34 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <!--    SONG POPULATORS and CONSTRUCTORS-->
+    <!--    SONG POPULATORS -->
+    <bean id="songIdTitleAndCategoryPopulator"
+          class="pl.mwrobel91.songbook.populator.impl.SongIdTitleAndCategoryPopulator">
+        <constructor-arg ref="categoryWithoutSongsConverter"/>
+    </bean>
 
-    <!--    CATEGORY POPULATORS and CONSTRUCTORS-->
+    <bean id="songLyricsAndDurationPopulator"
+          class="pl.mwrobel91.songbook.populator.impl.SongLyricsAndDurationPopulator"/>
+
+    <!--    SONG CONVERTERS -->
+    <bean id="songConverter" class="pl.mwrobel91.songbook.converter.Converter">
+        <constructor-arg index="0">
+            <value type="java.lang.Class">pl.mwrobel91.songbook.dto.SongDTO</value>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <array>
+                <ref bean="songIdTitleAndCategoryPopulator"/>
+                <ref bean="songLyricsAndDurationPopulator"/>
+            </array>
+        </constructor-arg>
+    </bean>
+
+    <!--    CATEGORY POPULATORS -->
     <bean id="categoryIdPopulator" class="pl.mwrobel91.songbook.populator.impl.CategoryIdPopulator"/>
+
     <bean id="categoryNamePopulator" class="pl.mwrobel91.songbook.populator.impl.CategoryNamePopulator"/>
 
+    <!--    CATEGORY CONVERTERS -->
     <bean id="categoryWithoutSongsConverter" class="pl.mwrobel91.songbook.converter.Converter">
         <constructor-arg index="0">
             <value type="java.lang.Class">pl.mwrobel91.songbook.dto.CategoryDTO</value>
