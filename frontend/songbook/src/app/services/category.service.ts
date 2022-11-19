@@ -1,30 +1,20 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { ISong } from '../types/song';
 import { Url } from '../enums/url.enum';
-
-//import { MessageService } from 
+import { ICategory } from '../types/category';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SongService {
+export class CategoryService {
 
-  private songsUrl = Url.BASE_URL + 'song/all';
-  private randomSongUrl: string = Url.BASE_URL + 'song/random';
+  private categoriesUrl = Url.BASE_URL + 'category/all';
 
-  constructor(    private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getSongs(): Observable<ISong[]> {
-    return this.http.get<ISong[]>(this.songsUrl).pipe(
-      tap(data => console.log('All: ', JSON.stringify(data))),
-      catchError(this.handleError)
-    );
-  }
-
-  getRandomSong(): Observable<ISong>{
-    return this.http.get<ISong>(this.randomSongUrl).pipe(
+  getCategories(): Observable<ICategory[]>{
+    return this.http.get<ICategory[]>(this.categoriesUrl).pipe(
       tap(data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
@@ -45,11 +35,4 @@ export class SongService {
     console.error(errorMessage);
     return throwError(() => errorMessage);
   }
-
 }
-
-//   /** Log a HeroService message with the MessageService */
-// private log(message: string) {
-//   this.messageService.add(`HeroService: ${message}`);
-// }
-

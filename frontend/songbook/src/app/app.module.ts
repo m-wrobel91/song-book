@@ -9,14 +9,16 @@ import { SongListComponent } from './components/song-list.component';
 import { SongSearchComponent } from './components/song-search.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';  
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SongCategoriesComponent } from './components/song-categories/song-categories.component';  
 
 @NgModule({
   declarations: [
     AppComponent,
     RandomSongComponent,
     SongListComponent,
-    FooterComponent
+    FooterComponent,
+    SongCategoriesComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule.forRoot([
       { path: 'randomSong', component: RandomSongComponent },
       { path: 'song-list', component: SongListComponent },
+      { path: 'song-categories', component: SongCategoriesComponent},
       { path: 'search-song/:phrase', component: SongSearchComponent },
       { path: '', redirectTo: 'randomSong', pathMatch: 'full' },
       { path: '**', redirectTo: 'randomSong', pathMatch: 'full' }
