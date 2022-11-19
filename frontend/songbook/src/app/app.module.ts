@@ -7,13 +7,16 @@ import { RouterModule } from '@angular/router';
 import { RandomSongComponent } from './components/random-song.component';
 import { SongListComponent } from './components/song-list.component';
 import { SongSearchComponent } from './components/song-search.component';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';  
 
 @NgModule({
   declarations: [
     AppComponent,
     RandomSongComponent,
-    SongListComponent
+    SongListComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,7 @@ import { CommonModule } from '@angular/common';
       { path: '', redirectTo: 'randomSong', pathMatch: 'full' },
       { path: '**', redirectTo: 'randomSong', pathMatch: 'full' }
      ]),
-    // ProductModule
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
