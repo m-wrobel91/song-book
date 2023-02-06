@@ -10,7 +10,8 @@ import { SongSearchComponent } from './components/song-search.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SongCategoriesComponent } from './components/song-categories/song-categories.component';  
+import { SongCategoriesComponent } from './components/song-categories/song-categories.component';
+import { SongComponent } from './song/song.component';  
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SongCategoriesComponent } from './components/song-categories/song-categ
     RandomSongComponent,
     SongListComponent,
     FooterComponent,
-    SongCategoriesComponent
+    SongCategoriesComponent,
+    SongComponent
   ],
   imports: [
     CommonModule,
