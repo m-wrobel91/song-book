@@ -1,20 +1,5 @@
 <h1>{{pageTitle}}</h1>
 
-<div class="song">
-
-    <table class="pure-table">
-        <thead>
-            <tr>
-                <th class="table-header"><h3>{{randomSong.title}} xxx</h3></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="table-body">
-                <td>{{randomSong.lyrics}}</td>
-            </tr>
-            <tr class="table-footer">
-               #{{randomSong.category.name}}  {{randomSong.duration}}
-            </tr>
-        </tbody>
-    </table>
+<div>
+    <app-song [song]="randomSong"></app-song>
 </div>

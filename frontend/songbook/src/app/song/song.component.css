@@ -1,0 +1,45 @@
+.song {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    max-width: 450px;
+}
+
+.song-title {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #55828B;
+    padding: 10px;
+    color: #C9E4CA;
+}
+
+.song-lyrics {
+    text-align: left;
+    white-space: pre-wrap;
+    border:2px solid #55828b;
+    padding: 10px 30px;
+}
+
+.song-footer {
+    padding: 10px 30px;
+    border-left:2px solid #55828b;
+    border-right:2px solid #55828b;
+    border-bottom:2px solid #55828b;
+
+    display: flex;
+    gap: 20px;
+}
+
+.song-category {
+    color: #87BBA2;
+    background-color: #364958;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.song-duration {
+    color: #364958;
+    background-color: #87BBA2;
+    padding: 10px;
+    border-radius: 10px;
+}

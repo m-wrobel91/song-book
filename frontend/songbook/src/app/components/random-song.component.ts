@@ -21,8 +21,7 @@ export class RandomSongComponent implements OnInit, OnDestroy{
 
     ngOnInit(): void {
         this.sub= this.songService.getRandomSong().subscribe({
-            next: song => {this.randomSong = song;
-            },
+            next: song => this.randomSong = song,
             error: err => this.errorMessage = err }
         );
     }
