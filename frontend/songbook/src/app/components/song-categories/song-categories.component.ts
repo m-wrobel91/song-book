@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
+import { MainCategoryService } from 'src/app/services/main-category.service';
 import { ICategory } from 'src/app/types/category';
+import { IMainCategory } from 'src/app/types/main-category';
 
 @Component({
   selector: 'app-song-categories',
@@ -10,23 +12,23 @@ import { ICategory } from 'src/app/types/category';
 })
 export class SongCategoriesComponent implements OnInit {
 
-  categoryList!: ICategory[];
+  mainCategoryList!: IMainCategory[];
   errorMessage = '';
   sub!: Subscription;
 
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private mainCategoryService: MainCategoryService) { }
 
   ngOnInit(): void {
-    console.log("i am in init", this.categoryList);
-    this.sub= this.categoryService.getCategories().subscribe({
-        next: categories => this.categoryList = categories,
-        error: err => this.errorMessage = err }
+    console.log("i am in init", this.mainCategoryList);
+    this.sub = this.mainCategoryService.getMainCategories().subscribe({
+      next: mainCategories => this.mainCategoryList = mainCategories,
+      error: err => this.errorMessage = err
+    }
     );
-}
+  }
 
-ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
-}
-
+  }
 }

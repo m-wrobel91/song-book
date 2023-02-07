@@ -1,6 +1,14 @@
-.flex-container {
+.categories-container {
     display: flex;
     align-items: stretch;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px 10px;
 
+    width: 560px;
+    margin: auto;
+}
+
+.category-button {
+    width: 180px;
 }
